@@ -1,0 +1,13 @@
+TSLITE_MODEL_PATH = "/var/www/app/learningSite/model/"
+LOCAL_TSLITE_MODEL_PATH = "model/"
+TSLITE_MODEL_NAME = "1 TFLite"
+IMAGE_FILE_PATH = "/var/www/app/learningSite/src/static/image"
+LOCAL_IMAGE_FILE_PATH = "src/static/image"
+DMM_IMAGE_FILE_PATH = "image/dmmImage"
+LOCAL_DMM_IMAGE_FILE_PATH = "image/dmmImage"
+CSV_FILE_PATH = "/var/www/app/learningSite/src/static/work/final.csv"
+LOCAL_CSV_FILE_PATH = "src/static/work/final.csv"
+STATIC_PATH = '/var/www/app/learningSite/src/static'
+LOCAL_STATIC_PATH = ''
+LOCAL＿MODE = False
+NAME_LIST = ["名前１", "名前２", "名前３", "名前４", "名前５", "名前６", "名前７", "名前８", "名前９", "名前１０", "名前１１"]

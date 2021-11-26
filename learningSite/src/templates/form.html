@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>テキスト分析</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/App.css')}}" />
+</head>
+<body>
+<div class="container">
+<h1 class="text-info">AV/セクシー女優 似た顔検索</h1>
+<a href="https://affiliate.dmm.com/api/"><img src="https://p.dmm.co.jp/p/affiliate/web_service/r18_88_35.gif" width="88" height="35" alt="WEB SERVICE BY FANZA" /></a>
+&nbsp;
+  <form name="mainForm" method="POST" action="/output" onLoad="startFunc()">
+    <h5>画像を選択してください。自動で似た顔の女優さんを検索します</h5>
+    &nbsp;
+    <div>
+      <input id="upload" name="upfile" type="file" accept="image/jpeg, image/png">
+      <input name="upImage" type="hidden" value="">
+    </div>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" border="1">
+      <tr>
+        <th></th>
+        <th>名前</th>
+        <th>生年月日</th>
+        <th>身長</th>
+        <th>B</th>
+        <th>C</th>
+        <th>H</th>
+        <th>W</th>
+      </tr>
+      {% for row in modelList %}
+      <tr>
+        {% set val1 = row.image %}
+        <td><img src="{{url_for('static', filename=row.image)}}"/></td>
+        <td><a href="{{ row.listURL }}">{{ row.name }}</a></td>
+        <td>{{ row.birthday }}</td>
+        <td>{{ row.height }}</td>
+        <td>{{ row.B }}</td>
+        <td>{{ row.C }}</td>
+        <td>{{ row.H }}</td>
+        <td>{{ row.W }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </form>
+  <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
+  <script type="text/javascript">
+  $(function(){
+    $("#upload").on("change", function(event){
+      if(!this.files.length) return;
+      var file = this.files[0];
+		  var fr = new FileReader();
+		  fr.onload=function(evt) {
+        console.log('A')
+        const image = evt.target.result
+        let form = document.forms.mainForm;
+        form.upImage.value = JSON.stringify({"base64Url":image});
+        form.submit();
+        //const imageData = JSON.stringify({"base64Url":image});
+        // JSONの場合
+        // $.ajax({
+        //   type:'POST',
+        //   dataType: 'json',
+        //   url:'/output',
+        //   // data:textData,
+        //   data :imageData,
+        //   contentType:'application/json',
+        //   processData: false,
+        //   // 非同期通信が成功したら実行される
+        //   success:function(data){
+        //     var result = JSON.parse(data.ResultSet).result;
+        //     if(result>0.05){
+        //       $("#match1").text("");
+        //     }
+        //     else if(result>0.01){
+        //       $("#match1").text("");
+        //     }
+        //     else{
+        //       $("#match1").text("");
+        //     }
+        //   }
+        //});
+			}
+		  fr.readAsDataURL(file);
+     });
+   });
+  </script>
+</body>
+</html>
