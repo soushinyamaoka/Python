@@ -1,0 +1,13 @@
+class ConfigConst:
+    DEFAULT = 'default'
+    MODE = 'mode'
+    FILE_NAME = 'config.ini'
+    USER_ID = 'user_id'
+    PASSWORD = 'password'
+    PRFILE_PATH = 'profile_path'
+    ADRESS = 'adress'
+    DOWNLOAD_PATH = 'download_path'
+    DOWNLOAD_DIR = 'download_dir'
+    ENCODING = 'utf-8'
+    EXCEL_PATH = 'excel_path'
+    EXCLUSION_TEXT = 'exclusion_text'
