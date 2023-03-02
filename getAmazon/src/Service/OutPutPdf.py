@@ -83,10 +83,10 @@ def get_history_on_pdf():
             driver.close()
             driver.switch_to.window(main_handle)
 
-            # ページ切り替え
-            if not DriverCommon.switchWindow(driver):
-                # 切り替え不可の場合は終了
-                break
+        # ページ切り替え
+        if not DriverCommon.switchWindow(driver):
+            # 切り替え不可の場合は終了
+            break
 
 
             

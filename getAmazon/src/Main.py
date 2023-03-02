@@ -40,6 +40,7 @@ def main():
                 OutPutPdf.main(conf, driver)                
             except:
                 logger.error("pdf化処理でエラーが発生しました。")
+                raise
 
         # Excel出力モードの場合
         elif conf.mode == "2":
@@ -48,6 +49,7 @@ def main():
                 OutPutExcel.main(conf, driver)               
             except:
                 logger.error("Excel出力情報取得処理でエラーが発生しました。")
+                raise
 
     except Exception as e:
         logger.error("エラーが発生しました。")

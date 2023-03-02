@@ -1,8 +1,10 @@
+import datetime
 import logging
 
 def log_init():
+    now = datetime.datetime.now()
     # "example.log"を出力先とするファイルハンドラ作成
-    ch = logging.FileHandler(filename="example.log")
+    ch = logging.FileHandler(filename=now.strftime('%Y%m%d')  + ".log")
     #DEBUGレベルまで見る
     ch.setLevel(logging.DEBUG)
 
